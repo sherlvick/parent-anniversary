@@ -1,0 +1,114 @@
+.container {
+  /* background-image: url("https://media2.giphy.com/media/T2J86H6QVTHoDnysnW/giphy.gif?cid=790b7611dc1e4fc7b74f824f3fa539f693ac8da2e9dd4ab0&rid=giphy.gif&ct=g"); */
+  background-color: #222;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.gift {
+  margin-top: 50px;
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+}
+
+.hithere {
+  animation: hithere 2s ease infinite;
+}
+
+@keyframes hithere {
+  30% {
+    transform: scale(1.2);
+  }
+  40%,
+  60% {
+    transform: rotate(-20deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.2);
+  }
+  70% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.slider {
+  /* margin-top: 5vh; */
+}
+
+.slider .rsis-image {
+  border-radius: 5px !important;
+  /* background-size: contain !important;
+  background-repeat: no-repeat !important; */
+}
+
+.anni-text-wrapper {
+  margin-top: 10vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-style: italic;
+}
+
+.year {
+  /* color: #fff; */
+  font-size: 90px;
+  /* position: relative; */
+  line-height: 1;
+  /* letter-spacing: 0.01em; */
+  background: -webkit-linear-gradient(#ffff00, #febe10);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-right: 10px;
+}
+
+.year::before {
+  content: "";
+  height: 6px;
+  width: 200px;
+  display: block;
+  position: absolute;
+  bottom: 15px;
+  left: 0.4em;
+  background: #febe10;
+  overflow: hidden;
+  /* background: -webkit-linear-gradient(#ffff00, #febe10); */
+}
+
+/* .greet-text {
+  color: #fff;
+} */
+
+.greet-text p {
+  margin: 0;
+}
+
+.greet-text p:nth-child(odd) {
+  color: grey;
+  font-size: 12px;
+}
+
+.greet-text p:nth-child(even) {
+  background: -webkit-linear-gradient(#ffff00, #febe10);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.message {
+  color: aliceblue;
+}
+
+.closeBtn {
+  border-radius: 20px;
+  padding: 5px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+}

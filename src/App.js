@@ -1,24 +1,123 @@
-import logo from './logo.svg';
-import './App.css';
+import "./app.css";
+import GiftSvg from "./assets/gift.svg";
+import LoveSvg from "./assets/love.svg";
+import SimpleImageSlider from "react-simple-image-slider";
+import Image from "react-image-enlarger";
+import React from "react";
+import Modal from "react-modal";
+
+const imageAddr = [
+  "https://lh3.googleusercontent.com/hu2nsJpEFMZ07aR6Stb7Jp-HJ3uEu71JRc8ckv--Au69WkEELM0iFD-JyEoR7L8s3ZV6cjVLzaKIYOKODaJyt_UoBv_GKp8boaRLXtRhYE1eLXAMDVF_8pDyNiuIBqhBaTxzD52CqzD2Cui0gdYgjjDch-BrwP96Ye5VI26TcfQ3lZwaoT4Wz5bpXQJUDaSKovvKZt1Gyw3kYfxccIdqKsZud-SoJvjA3YjHd6gQATLRQfVUBC4L1-UHwqWhk7Y25NEjOxc7jbHVuwhH_NKm1Ft_wHrmU5C2IVD3kClOl-knakRxD0Pp5nPVZqRVt2ra9OsrOo7COVaL-8ltJCSP-JYMbCGn0lYQZPnA2XsE8lkdvP0OhJJS_nDG2DmklwH_a38ek0N3S_wrQVF3yGoY1F4eG4vUTaRaQxS2XtT3hTW_5AH6_Q6lyF2qQ5YTCRgEmep79AiRRs7uUf10YM7larNS4ODwz4zcI6lIdGGf6UOT68ufqOxqLHs-xjUX4aVj5xQi-uN_HDLXrcIARVIknvcM0TaWZKVTni-4ylnmb7uAlR3bBHVpBDcQyFTXftl23eQq6UvOrK6lDGhvVvtuBfDyIAPZmkqv36klR9XqKNy-CFCtToyzUYi2gxQiqOGJBh2HhlWlsGYYZonRmFVLKTmlJ7_bdqNe2rHtMC0-2--0Qw_pgyuCZEiE3fVX_L6ShPapL5yAV0rpFKA5RMrro7UvnGoViRHPdpnGu3RP8Bbcg7PDBUA4dCw8Q6I=w1264-h949-no?authuser=0",
+  "https://lh3.googleusercontent.com/vD9i6V0t2bXDyfxXZ4mk_-sguwKs0Jlc7JX2VOJ4rSf8y4EYZMPqy1oCAiBgCYr8I7USrUCJBPKdoJBVGKKC7wetfNPkpoOmdunAr7nGEruqqzW3W5tiES7LIt_dQxdYRftltqLT34ylo7NpWtw_vQ2q7LbQ_F5bV3oEbtlZH7Cgt1-ccei1Fpiy1D_yljs8Q2zk4Qh6EuIxZ0qija29sTMpBclFdByrJJJn-eN1CNp9iBGMawIJD1qyd1XRTZMtpaDkNLbibLRgLNgkkPoxNfC8C66j0gGXCUAzK3KmM8Nk72RUMozD3vSPFnlc6fOZJr94nc4vnLmF6xJzKRJZS4dHotX_Kz9oCvBxY5l3Gi4km0Xe_eLspypuwP0CDobAWU1uT23tuXGxezlzHTrBChQdRY82ejUsinaRyn7LiRR8q95hqru42Iu9V_ox0kuWFYpMqdh1sVXiD_2C8a4FWWEp1Gyqrdfi8Dl3zT6mbG0QJcOFiNu4zHMDDcHgdQizFQySNwF8KlmblikpMQZlmP68-nmXp1n81flvf5fxkQsz-ycUNdsqj8omgOylUB_TL-oqejHkj1mC_5E4TLhdGDfRahNM7OvD5Pb7Sn3CZlE1ZX4UTHsygdhIs2BDCbV2igYcfrNzSz0-AUhr5dCCX5QYYwE_Z67q0y5YvR-eQ3whVKM6nsIaD0QcyEvSrEtOEnXAN4TaOJMzmALaLB7KmEAyvsWCuqSsAY8vC_rWUjlXCYPEp5EWt5RebnE=w711-h948-no?authuser=0",
+];
+
+// Modal.setAppElement("#clickable_gift");
+
+const customStyles = {
+  content: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#febe10",
+  },
+};
 
 function App() {
+  const [image, setImage] = React.useState(null);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <section className="container">
+      {/* <iframe
+        src="https://giphy.com/embed/T2J86H6QVTHoDnysnW"
+        width="400px"
+        height="800px"
+        style={{ position: "absolute" }}
+        frameBorder="0"
+        class="giphy-embed"
+        allowFullScreen
+      ></iframe> */}
+      <div className="slider">
+        <SimpleImageSlider
+          width="390px"
+          height="250px"
+          // width="100%"
+          // height="100%"
+          images={imageAddr}
+          // showBullets={true}
+          showNavs={true}
+          onClick={(idx, event) => {
+            setImage(imageAddr[idx]);
+          }}
+          autoPlay
+          autoPlayDelay={2}
+        />
+      </div>
+
+      {image && (
+        <Image
+          style={{ width: "200px", height: "auto" }}
+          // style={{ width: "0px", height: "0px" }}
+          zoomed={image ? true : false}
+          src={image}
+          // onClick={() => setZoomed(true)}
+          onRequestClose={() => setImage(null)}
+        />
+      )}
+      <div className="anni-text-wrapper">
+        <div className="year">28</div>
+        <div className="greet-text">
+          <p>YEARS</p>
+          <p>ANNIVERSARY</p>
+          <p>CELEBRATION</p>
+        </div>
+      </div>
+
+      <img
+        // id="clickable_gift"
+        src={GiftSvg}
+        width="180px"
+        className="gift hithere"
+        onClick={openModal}
+      />
+      <Modal
+        isOpen={modalIsOpen}
+        // onAfterOpen={afterOpenModal}
+        style={customStyles}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+      >
+        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
+        {/* <button onClick={closeModal}>close</button> */}
+        <img
+          // id="clickable_gift"
+          src={LoveSvg}
+          width="180px"
+        />
+        <p className="message">
+          {/* Mom and Dad, I cannot begin to describe how blessed I am to have
+          amazing parents in my life. Seeing true love through you both makes my
+          heart happy. As your son I see perfection in both of you. I
+          love you. */}
+          माँ और पिताजी, मैं वर्णन करना शुरू नहीं कर सकता कि मैं कितना धन्य हूँ
+          मेरे जीवन में अद्भुत माता-पिता। आप दोनों के द्वारा सच्चा प्यार देखकर
+          मेरा दिल खुश. आपकी बेटे के रूप में मैं आप दोनों में पूर्णता देखता हूं।
+          मुझे तुमसे प्यार है।
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <button onClick={closeModal} className="closeBtn">
+          बंद करो
+        </button>
+      </Modal>
+    </section>
   );
 }
 
