@@ -86,7 +86,7 @@ function App() {
         />
       )}
       <div className="anni-text-wrapper">
-        <div className="year">28</div>
+        <div className="year">29</div>
         <div className="greet-text">
           <p>YEARS</p>
           <p>ANNIVERSARY</p>
