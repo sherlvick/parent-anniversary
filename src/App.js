@@ -122,10 +122,8 @@ function App() {
           amazing parents in my life. Seeing true love through you both makes my
           heart happy. As your son I see perfection in both of you. I
           love you. */}
-          माँ और पिताजी, मैं वर्णन करना शुरू नहीं कर सकता कि मैं कितना धन्य हूँ
-          मेरे जीवन में अद्भुत माता-पिता। आप दोनों के द्वारा सच्चा प्यार देखकर
-          मेरा दिल खुश. आपकी बेटे के रूप में मैं आप दोनों में पूर्णता देखता हूं।
-          मुझे तुमसे प्यार है।
+          मम्मी पापा मैं बता नहीं सकता कि मैं कितना भाग्यशाली हूँ जो मुझे आप
+          जैसे पेरेंट्स मिले। आप दोनों को शादी की सालगिरह मुबारक हो
         </p>
         <button onClick={closeModal} className="closeBtn">
           बंद करो
