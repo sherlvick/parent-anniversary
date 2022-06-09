@@ -87,6 +87,7 @@ function App() {
 
       <img
         // id="clickable_gift"
+        alt="gift"
         src={GiftSvg}
         width="180px"
         className="gift hithere"
@@ -103,6 +104,7 @@ function App() {
         {/* <button onClick={closeModal}>close</button> */}
         <img
           // id="clickable_gift"
+          alt="love"
           src={LoveSvg}
           width="180px"
         />
